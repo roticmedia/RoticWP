@@ -1,0 +1,95 @@
+<?php
+
+/*
+Plugin Name: Rotic Plugin
+Plugin URI: http://rotic.ir
+Description: Connect your website to the Rotic, because you contacted to the future.
+Version: 1.0
+Author: Rotic Team
+Author URI: http://rotic.ir
+License: MIT
+*/
+
+function pluginprefix_install()
+{
+//ایجاد جدول
+    global $wpdb;
+    require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+    $create_table = "
+CREATE TABLE {$wpdb->prefix}rotic (
+token varchar(512) COLLATE utf8_persian_ci NOT NULL
+) CHARSET=utf8 COLLATE=utf8_persian_ci;
+";
+    dbDelta($create_table);
+}
+
+register_activation_hook(__FILE__, 'pluginprefix_install');
+add_action('admin_menu', 'menu_builder');
+function menu_builder()
+{
+    add_menu_page('پشتیبانی روتیک', 'پشتیبانی روتیک', 'manage_options', 'rotic', '', "https://rotic.ir/images/wordpress-150x.png");
+}
+
+add_action('admin_menu', 'option_builder');
+function option_builder()
+{
+    add_options_page("پشتیبانی روتیک", "پشتیبانی روتیک", 'manage_options', 'rotic', 'page_builder');
+}
+
+$opt = get_option('token')['token'];
+function page_builder()
+{
+    if (isset($_POST['save'])) {
+        $_POST['token'] = esc_sql($_POST['token']);
+        update_option('token', $_POST);
+        echo '<div class="error"><p>تنظیمات با موفقیت ذخیره شد</p></div>';
+    }
+    $opt = get_option('token')['token'];
+    ?>
+    <div class="wrap">
+        <h2>تنظیمات وب سرویس روتیک</h2>
+
+        <form method="post" enctype="multipart/form-data">
+            <table class="widefat">
+                <thead>
+                <tr>
+                    <th colspan="۲">تنظیمات</th>
+                </tr>
+                <tr style="width: 100%;text-align: center">
+                    <th colspan="۲" style="width: 100%;text-align: center;margin: 10%"><img
+                                src="https://rotic.ir/images/rotic-full-cyan.png" width="10%" alt="Rotic"></th>
+                </tr>
+                </thead>
+                <tr>
+                    <td style="width: 100%;text-align: center;margin: 10%">
+                        <label for="webapikey">تنظیم توکن رویس (<a
+                                    href="https://rotic.ir/register" target="_blank">ایجاد حساب کاربری در
+                                روتیک</a>)</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 100%;text-align: center;margin: 10%">
+                        <input type="password" size="۱۰۰" id="webapikey" style="width: 100%;text-align: center"
+                               name="token"
+                               required=""
+                               value="<?php echo empty($opt) ? '' : $opt ?>"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="۲">
+                        <input type="submit" name="save" value="ذخیره" class="button-primary"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <?php
+}
+
+function add_script()
+{
+    $opt = get_option('token')['token'];
+    echo '<script src="https://rotic.ir/api/v1/enterprise/' . $opt . '/widget"></script>';
+}
+
+add_action('wp_footer', 'add_script');
