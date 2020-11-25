@@ -67,15 +67,20 @@ function page_builder()
                 </thead>
                 <tr>
                     <td style="width: 100%;text-align: center;margin: 10%">
-                        <label for="webtoken">تنظیم توکن رویس (<a
-                                    href="https://rotic.ir/register" target="_blank">ایجاد حساب کاربری در
-                                روتیک</a>)</label>
+                        <label for="webtoken">
+                            تنظیم توکن روتیک (
+                            <a href="https://rotic.ir/panel" target="_blank">دریافت توکن کسب و کار</a>
+                             و
+                            <a href="https://rotic.ir/panel/bots" target="_blank">دریافت توکن بات</a>
+                            )
+                        </label>
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 100%;text-align: center;margin: 10%">
                         <input type="password" size="۱۰۰" id="webtoken" style="width: 100%;text-align: center"
                                name="token"
+                               placeholder="لطفا توکن کسب و کار خود را از پنل روتیک وارد کنید"
                                required=""
                                value="<?php echo empty($token) ? '' : $token ?>"/>
                     </td>
@@ -84,6 +89,7 @@ function page_builder()
                     <td style="width: 100%;text-align: center;margin: 10%">
                         <input type="password" size="۱۰۰" id="webapi" style="width: 100%;text-align: center"
                                name="api"
+                               placeholder="لطفا توکن بات خود را از پنل روتیک وارد کنید"
                                required=""
                                value="<?php echo empty($api) ? '' : $api ?>"/>
                     </td>
