@@ -9,4 +9,4 @@
 # Rotic WP
 Connect your website to the Rotic, because you contacted to the future.
 
-<p align="center"><img src="https://rotic.ir/images/rotic-plugin-screenshot.png" width="400"></p>
+<p align="center"><img src="https://rotic.ir/images/background/roticwp.png" width="100%"></p>
