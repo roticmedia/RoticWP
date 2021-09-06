@@ -56,17 +56,18 @@ function page_builder()
     $api = get_option('token')['api'];
     $driver = get_option('token')['driver'];
     ?>
+    <link rel="stylesheet" href="https://rotic.ir/css/custom.css" >
     <div class="wrap">
-        <h2>تنظیمات وب سرویس روتیک</h2>
+        <h2 class="persian" >تنظیمات وب سرویس روتیک</h2>
 
-        <form method="post" enctype="multipart/form-data">
+        <form method="post"  class="persian"  enctype="multipart/form-data">
             <table class="widefat">
                 <thead>
                 <tr>
-                    <th colspan="۲">تنظیمات</th>
+                    <th colspan="2">تنظیمات</th>
                 </tr>
                 <tr style="width: 100%;text-align: center">
-                    <th colspan="۲" style="width: 100%;text-align: center;margin: 10%"><img
+                    <th colspan="2" style="width: 100%;text-align: center;margin: 10%"><img
                                 src="https://rotic.ir/images/rotic-full-cyan.png" width="10%" alt="Rotic"></th>
                 </tr>
                 </thead>
@@ -83,7 +84,10 @@ function page_builder()
                 </tr>
                 <tr>
                     <td style="width: 100%;text-align: center;margin: 10%">
-                        <input type="password" size="100" id="webtoken" style="width: 100%;text-align: center"
+                        <label for="webtoken">توکن کسب و کار:</label>
+                    </td>
+                    <td style="width: 100%;text-align: center;margin: 10%">
+                        <input type="password" class="persian" size="100" id="webtoken" style="width: 100%;text-align: center"
                                name="token"
                                placeholder="لطفا توکن کسب و کار خود را از پنل روتیک وارد کنید"
                                required=""
@@ -91,6 +95,9 @@ function page_builder()
                     </td>
                 </tr>
                 <tr>
+                    <td style="width: 100%;text-align: center;margin: 10%">
+                        <label for="webapi">توکن ربات:</label>
+                    </td>
                     <td style="width: 100%;text-align: center;margin: 10%">
                         <input type="password" size="100" id="webapi" style="width: 100%;text-align: center"
                                name="api"
@@ -100,8 +107,10 @@ function page_builder()
                     </td>
                 </tr>
                 <tr>
-                    <td style="width: 100%;text-align: center;margin: 10%">
+                    <td>
                         <label for="webdriver">پیام رسان خود را انتخاب کنید:</label>
+                    </td>
+                    <td style="width: 100%;text-align: center;margin: 10%">
                         <select name="driver" id="webdriver" style="width: 100%;text-align: center" >
                             <option value="rotic">هیچ کدام</option>
                             <option value="imber">ایمبر</option>
