@@ -2,13 +2,14 @@
 
 /*
 Plugin Name: Rotic Plugin
-Plugin URI: http://rotic.ir
-Description: Connect your website to the Rotic, because you contacted to the future.
-Version: 1.0
-Author: Rotic Team
+Plugin URI: https://github.com/roticmedia/RoticWP/releases
+Description: Connect your website to the Rotic, because you contacted to the future..
+Version: 2.0.0
+Author: Milad Xandi
 Author URI: http://rotic.ir
 License: MIT
 */
+
 
 function pluginprefix_install()
 {
