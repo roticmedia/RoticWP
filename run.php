@@ -4,7 +4,7 @@
 Plugin Name: Rotic Plugin
 Plugin URI: https://github.com/roticmedia/RoticWP/releases
 Description: Connect your website to the Rotic, because you contacted to the future..
-Version: 2.0.3
+Version: 2.0.4
 Author: Milad Xandi
 Author URI: http://rotic.ir
 License: MIT
@@ -55,6 +55,7 @@ function page_builder()
     $token = get_option('token')['token'];
     $api = get_option('token')['api'];
     $driver = get_option('token')['driver'];
+    $drivers = ['rotic'=>'هیچ کدام','imber'=>'ایمبر','raychat'=>'رای چت','retain'=>'ریتین','goftino'=>'گفتینو','crisp'=>'Crisp','smartsupp'=>'SmartSupp','intercom'=>'Intercom'];
     ?>
     <div class="wrap">
         <h2 class="persian" >تنظیمات وب سرویس روتیک</h2>
@@ -100,14 +101,13 @@ function page_builder()
                     </td>
                     <td style="width: 50% !important;text-align: center;margin: 10%">
                         <select name="driver" id="webdriver" style="width: 100%;text-align: center" >
-                            <option value="rotic">هیچ کدام</option>
-                            <option value="imber">ایمبر</option>
-                            <option value="raychat">رای چت</option>
-                            <option value="retain">ریتین</option>
-                            <option value="goftino">گفتینو</option>
-                            <option value="crisp">Crisp</option>
-                            <option value="smartsupp">SmartSupp</option>
-                            <option value="intercom">Intercom</option>
+                            <?php foreach ($drivers as $key => $item): ?>
+                                <?php if ($driver == $item): ?>
+                                    <option selected value="<?php echo $key ?>"><?php echo $item ?></option>
+                                <?php elseif($driver!=$item): ?>
+                                    <option value="<?php echo $key ?>"><?php echo $item ?></option>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
                         </select>
                     </td>
                 </tr>
