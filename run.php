@@ -102,9 +102,9 @@ function page_builder()
                     <td style="width: 50% !important;text-align: center;margin: 10%">
                         <select name="driver" id="webdriver" style="width: 100%;text-align: center" >
                             <?php foreach ($drivers as $key => $item): ?>
-                                <?php if ($driver == $item): ?>
+                                <?php if ($driver == $key): ?>
                                     <option selected value="<?php echo $key ?>"><?php echo $item ?></option>
-                                <?php elseif($driver!=$item): ?>
+                                <?php elseif($driver!=$key): ?>
                                     <option value="<?php echo $key ?>"><?php echo $item ?></option>
                                 <?php endif; ?>
                             <?php endforeach; ?>
