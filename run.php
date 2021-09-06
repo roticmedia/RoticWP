@@ -28,28 +28,32 @@ register_activation_hook(__FILE__, 'pluginprefix_install');
 add_action('admin_menu', 'menu_builder');
 function menu_builder()
 {
-    add_menu_page('پشتیبانی روتیک', 'پشتیبانی روتیک', 'manage_options', 'rotic', '', "https://rotic.ir/images/wordpress-150x.png");
+    add_menu_page('افزونه روتیک', 'افزونه روتیک', 'manage_options', 'rotic', '', "https://rotic.ir/images/wordpress-150x.png");
 }
 
 add_action('admin_menu', 'option_builder');
 function option_builder()
 {
-    add_options_page("پشتیبانی روتیک", "پشتیبانی روتیک", 'manage_options', 'rotic', 'page_builder');
+    add_options_page("افزونه روتیک", "افزونه روتیک", 'manage_options', 'rotic', 'page_builder');
 }
 
 $token = get_option('token')['token'];
 $api = get_option('token')['api'];
+$driver = get_option('token')['driver'];
 function page_builder()
 {
     if (isset($_POST['save'])) {
         $_POST['token'] = esc_sql($_POST['token']);
         $_POST['api'] = esc_sql($_POST['api']);
+        $_POST['driver'] = esc_sql($_POST['driver']);
         update_option('token', $_POST);
         update_option('api', $_POST);
+        update_option('driver', $_POST);
         echo '<div class="error"><p>تنظیمات با موفقیت ذخیره شد</p></div>';
     }
     $token = get_option('token')['token'];
     $api = get_option('token')['api'];
+    $driver = get_option('token')['driver'];
     ?>
     <div class="wrap">
         <h2>تنظیمات وب سرویس روتیک</h2>
@@ -78,7 +82,7 @@ function page_builder()
                 </tr>
                 <tr>
                     <td style="width: 100%;text-align: center;margin: 10%">
-                        <input type="password" size="۱۰۰" id="webtoken" style="width: 100%;text-align: center"
+                        <input type="password" size="100" id="webtoken" style="width: 100%;text-align: center"
                                name="token"
                                placeholder="لطفا توکن کسب و کار خود را از پنل روتیک وارد کنید"
                                required=""
@@ -87,11 +91,26 @@ function page_builder()
                 </tr>
                 <tr>
                     <td style="width: 100%;text-align: center;margin: 10%">
-                        <input type="password" size="۱۰۰" id="webapi" style="width: 100%;text-align: center"
+                        <input type="password" size="100" id="webapi" style="width: 100%;text-align: center"
                                name="api"
                                placeholder="لطفا توکن بات خود را از پنل روتیک وارد کنید"
                                required=""
                                value="<?php echo empty($api) ? '' : $api ?>"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 100%;text-align: center;margin: 10%">
+                        <label for="webdriver">پیام رسان خود را انتخاب کنید:</label>
+                        <select name="driver" id="webdriver" style="width: 100%;text-align: center" >
+                            <option value="rotic">هیچ کدام</option>
+                            <option value="imber">ایمبر</option>
+                            <option value="raychat">رای چت</option>
+                            <option value="retain">ریتین</option>
+                            <option value="goftino">گفتینو</option>
+                            <option value="crisp">Crisp</option>
+                            <option value="smartsupp">SmartSupp</option>
+                            <option value="intercom">Intercom</option>
+                        </select>
                     </td>
                 </tr>
                 <tr>
@@ -109,7 +128,9 @@ function add_script()
 {
     $token = get_option('token')['token'];
     $api = get_option('token')['api'];
+    $driver = get_option('token')['driver'];
     echo '<script src="https://rotic.ir/api/v1/enterprise/' . $token . '/widget/'.$api.'"></script>';
+    if ($driver!='rotic'){echo '<script>window.addEventListener("rotic-start", function () { Rotic.setScroll(1000); Rotic.setDriver("'.$driver.'");})</script>';}
 }
 
 add_action('wp_footer', 'add_script');
