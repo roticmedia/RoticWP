@@ -3,8 +3,8 @@
 /*
 Plugin Name: Rotic Plugin
 Plugin URI: https://github.com/roticmedia/RoticWP/releases
-Description: Connect your website to the Rotic, because you contacted to the future..
-Version: 2.0.6
+Description: Connect your website to the Rotic, because you contacted to the future...
+Version: 2.0.8
 Author: Milad Xandi
 Author URI: http://rotic.ir
 License: GPLv2
