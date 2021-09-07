@@ -2,7 +2,7 @@
     "name": "roticmedia/roticwp",
     "description": "Connect your website to the Rotic intelligent services, because you contacted to the future.",
     "type": "library",
-    "license": "MIT",
+    "license": "GPLv2",
     "authors": [
         {
             "name": "Milad Xandi",
