@@ -127,7 +127,7 @@ function add_script()
     $token = get_option('token')['token'];
     $api = get_option('token')['api'];
     $driver = get_option('token')['driver'];
-    echo '<script src="https://rotic.ir/api/v1/enterprise/' . $token . '/widget/'.$api.'"></script>';
+    echo '<script src="https://api.rotic.ir/v1/enterprise/' . $token . '/widget/'.$api.'"></script>';
     if ($driver!='rotic'){echo '<script>window.addEventListener("rotic-start", function () { Rotic.setScroll(1000); Rotic.setDriver("'.$driver.'");})</script>';}
 }
 
