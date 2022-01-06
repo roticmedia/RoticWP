@@ -41,20 +41,24 @@ function option_builder()
 $token = get_option('token')['token'];
 $api = get_option('token')['api'];
 $driver = get_option('token')['driver'];
+$side = get_option('token')['side'];
 function page_builder()
 {
     if (isset($_POST['save'])) {
         $_POST['token'] = esc_sql($_POST['token']);
         $_POST['api'] = esc_sql($_POST['api']);
         $_POST['driver'] = esc_sql($_POST['driver']);
+        $_POST['side'] = esc_sql($_POST['side']);
         update_option('token', $_POST);
         update_option('api', $_POST);
         update_option('driver', $_POST);
+        update_option('side', $_POST);
         echo '<div class="error"><p>تنظیمات با موفقیت ذخیره شد</p></div>';
     }
     $token = get_option('token')['token'];
     $api = get_option('token')['api'];
     $driver = get_option('token')['driver'];
+    $side = get_option('token')['side'];
     $drivers = ['rotic'=>'هیچ کدام','imber'=>'ایمبر','raychat'=>'رای چت','retain'=>'ریتین','goftino'=>'گفتینو','crisp'=>'Crisp','smartsupp'=>'SmartSupp','intercom'=>'Intercom'];
     ?>
     <div class="wrap">
@@ -97,7 +101,7 @@ function page_builder()
                 </tr>
                 <tr>
                     <td style="width: 50% !important;text-align: center;margin: 10%">
-                        <label for="webdriver">پیام رسان خود را انتخاب کنید:</label>
+                        <label for="webdriver">پیام رسان دوم خود را انتخاب کنید:</label>
                     </td>
                     <td style="width: 50% !important;text-align: center;margin: 10%">
                         <select name="driver" id="webdriver" style="width: 100%;text-align: center" >
@@ -108,6 +112,17 @@ function page_builder()
                                     <option value="<?php echo $key ?>"><?php echo $item ?></option>
                                 <?php endif; ?>
                             <?php endforeach; ?>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50% !important;text-align: center;margin: 10%">
+                        <label for="webside">جهت مورد نظر را انتخاب کنید:</label>
+                    </td>
+                    <td style="width: 50% !important;text-align: center;margin: 10%">
+                        <select name="side" id="webside" style="width: 100%;text-align: center" >
+                            <option selected value="right">سمت راست</option>
+                            <option selected value="left">سمت چپ</option>
                         </select>
                     </td>
                 </tr>
@@ -127,8 +142,9 @@ function add_script()
     $token = get_option('token')['token'];
     $api = get_option('token')['api'];
     $driver = get_option('token')['driver'];
-    echo '<script src="https://api.rotic.ir/v1/enterprise/' . $token . '/widget/'.$api.'"></script>';
-    if ($driver!='rotic'){echo '<script>window.addEventListener("rotic-start", function () { Rotic.setScroll(1000); Rotic.setDriver("'.$driver.'");})</script>';}
+    $side = isset(get_option('token')['side']) && get_option('token')['side']!= null ? get_option('token')['side'] : "right";
+    echo '<script src="https://api.rotic.ir/v2/enterprise/' . $token . '/widget/'.$api.'"></script>';
+    if ($driver!='rotic'){echo '<script>window.addEventListener("rotic-start", function () { Rotic.setScroll(1000); Rotic.setDriver("'.$driver.'"); Rotic.setSide("'.$side.'");})</script>';}
 }
 
 add_action('wp_footer', 'add_script');
