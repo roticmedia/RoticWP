@@ -125,8 +125,11 @@ function page_builder()
                         <select name="side" id="side" style="width: 100%;text-align: center">
                             <?php if ($side == 'right'): ?>
                                 <option selected value="right">سمت راست</option>
+                                <option value="left">سمت چپ</option>
+
                             <?php else: ?>
                                 <option selected value="left">سمت چپ</option>
+                                <option value="right">سمت راست</option>
                             <?php endif; ?>
                         </select>
                     </td>
