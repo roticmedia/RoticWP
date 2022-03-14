@@ -59,12 +59,12 @@ function page_builder()
     $api = get_option('token')['api'];
     $driver = get_option('token')['driver'];
     $side = get_option('token')['side'];
-    $drivers = ['rotic'=>'هیچ کدام','imber'=>'ایمبر','raychat'=>'رای چت','retain'=>'ریتین','goftino'=>'گفتینو','crisp'=>'Crisp','smartsupp'=>'SmartSupp','intercom'=>'Intercom'];
+    $drivers = ['rotic' => 'هیچ کدام', 'imber' => 'ایمبر', 'raychat' => 'رای چت', 'retain' => 'ریتین', 'goftino' => 'گفتینو', 'crisp' => 'Crisp', 'smartsupp' => 'SmartSupp', 'intercom' => 'Intercom'];
     ?>
     <div class="wrap">
-        <h2 class="persian" >تنظیمات وب سرویس روتیک</h2>
-        <form method="post"  class="persian"  enctype="multipart/form-data">
-            <div style="text-align: center" >
+        <h2 class="persian">تنظیمات وب سرویس روتیک</h2>
+        <form method="post" class="persian" enctype="multipart/form-data">
+            <div style="text-align: center">
                 <img src="https://rotic.ir/images/rotic-full-cyan.png" width="10%" alt="Rotic">
                 <h4>
                     تنظیم توکن روتیک (
@@ -104,11 +104,11 @@ function page_builder()
                         <label for="webdriver">پیام رسان دوم خود را انتخاب کنید:</label>
                     </td>
                     <td style="width: 50% !important;text-align: center;margin: 10%">
-                        <select name="driver" id="webdriver" style="width: 100%;text-align: center" >
+                        <select name="driver" id="webdriver" style="width: 100%;text-align: center">
                             <?php foreach ($drivers as $key => $item): ?>
                                 <?php if ($driver == $key): ?>
                                     <option selected value="<?php echo $key ?>"><?php echo $item ?></option>
-                                <?php elseif($driver!=$key): ?>
+                                <?php elseif ($driver != $key): ?>
                                     <option value="<?php echo $key ?>"><?php echo $item ?></option>
                                 <?php endif; ?>
                             <?php endforeach; ?>
@@ -117,12 +117,15 @@ function page_builder()
                 </tr>
                 <tr>
                     <td style="width: 50% !important;text-align: center;margin: 10%">
-                        <label for="webside">جهت مورد نظر را انتخاب کنید:</label>
+                        <label for="side">جهت مورد نظر را انتخاب کنید:</label>
                     </td>
                     <td style="width: 50% !important;text-align: center;margin: 10%">
-                        <select name="side" id="webside" style="width: 100%;text-align: center" >
-                            <option selected value="right">سمت راست</option>
-                            <option selected value="left">سمت چپ</option>
+                        <select name="side" id="side" style="width: 100%;text-align: center">
+                            <?php if ($side == 'right'): ?>
+                                <option selected value="right">سمت راست</option>
+                            <?php else: ?>
+                                <option selected value="left">سمت چپ</option>
+                            <?php endif; ?>
                         </select>
                     </td>
                 </tr>
@@ -142,9 +145,11 @@ function add_script()
     $token = get_option('token')['token'];
     $api = get_option('token')['api'];
     $driver = get_option('token')['driver'];
-    $side = isset(get_option('token')['side']) && get_option('token')['side']!= null ? get_option('token')['side'] : "right";
-    echo '<script src="https://api.rotic.ir/v2/enterprise/' . $token . '/widget/'.$api.'"></script>';
-    if ($driver!='rotic'){echo '<script>window.addEventListener("rotic-start", function () { Rotic.setScroll(1000); Rotic.setDriver("'.$driver.'"); Rotic.setSide("'.$side.'");})</script>';}
+    $side = isset(get_option('token')['side']) && get_option('token')['side'] != null ? get_option('token')['side'] : "right";
+    echo '<script src="https://api.rotic.ir/v2/enterprise/' . $token . '/widget/' . $api . '"></script>';
+    if ($driver != 'rotic') {
+        echo '<script>window.addEventListener("rotic-start", function () { Rotic.setScroll(1000); Rotic.setDriver("' . $driver . '"); Rotic.setSide("' . $side . '");})</script>';
+    }
 }
 
 add_action('wp_footer', 'add_script');
