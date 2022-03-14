@@ -154,6 +154,8 @@ function add_script()
     echo '<script src="https://api.rotic.ir/v2/enterprise/' . $token . '/widget/' . $api . '"></script>';
     if ($driver != 'rotic') {
         echo '<script>window.addEventListener("rotic-start", function () { Rotic.setScroll(1000); Rotic.setDriver("' . $driver . '"); Rotic.setSide("' . $side . '");})</script>';
+    } else {
+        echo '<script>window.addEventListener("rotic-start", function () { Rotic.setScroll(1000); Rotic.setSide("' . $side . '");})</script>';
     }
 }
 
