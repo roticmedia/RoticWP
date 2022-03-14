@@ -20,6 +20,8 @@ function pluginprefix_install()
 CREATE TABLE {$wpdb->prefix}rotic (
 token varchar(512) COLLATE utf8_persian_ci NOT NULL
 api varchar(512) COLLATE utf8_persian_ci NOT NULL
+driver varchar(512) COLLATE utf8_persian_ci NOT NULL
+side varchar(512) COLLATE utf8_persian_ci NOT NULL
 ) CHARSET=utf8 COLLATE=utf8_persian_ci;
 ";
     dbDelta($create_table);
@@ -65,7 +67,7 @@ function page_builder()
         <h2 class="persian">تنظیمات وب سرویس روتیک</h2>
         <form method="post" class="persian" enctype="multipart/form-data">
             <div style="text-align: center">
-                <img src="https://rotic.ir/images/rotic-full-cyan.png" width="10%" alt="Rotic">
+                <img src="https://rotic.ir/images/logo/rotic-full-cyan.png" width="10%" alt="Rotic">
                 <h4>
                     تنظیم توکن روتیک (
                     <a href="https://rotic.ir/panel" target="_blank">دریافت توکن کسب و کار</a>
