@@ -4,7 +4,7 @@
 Plugin Name: Rotic Plugin
 Plugin URI: https://github.com/roticmedia/RoticWP/releases
 Description: Connect your website to the Rotic, because you contacted to the future...
-Version: 2.0.8
+Version: 2.0.9
 Author: Milad Xandi
 Author URI: http://rotic.ir
 License: GPLv2
@@ -55,7 +55,7 @@ function page_builder()
         update_option('api', $_POST);
         update_option('driver', $_POST);
         update_option('side', $_POST);
-        echo '<div class="error"><p>تنظیمات با موفقیت ذخیره شد</p></div>';
+        echo '<div class="success"><p>تنظیمات با موفقیت ذخیره شد</p></div>';
     }
     $token = get_option('token')['token'];
     $api = get_option('token')['api'];
