@@ -5,7 +5,7 @@
 Plugin Name: افزونه روتیک
 Plugin URI: https://github.com/roticmedia/RoticWP/releases
 Description: Connect your website to the Rotic, because you contacted to the future...
-Version: 3.5.0.0
+Version: 4.0.0.0
 Author: شرکت دانش بنیان روتیک
 Author URI: http://rotic.ir
 License: GPLv2
