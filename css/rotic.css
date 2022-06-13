@@ -1,0 +1,178 @@
+@font-face {
+    font-family: IranSans;
+    src: url(../fonts/IrSansMedium/IRANSansFaNum-Medium.eot);
+    src: url(../fonts/IrSansMedium/IRANSansFaNum-Medium.eot?#iefix) format('embedded-opentype'), url(../fonts/IrSansMedium/IRANSansFaNum-Medium.woff2) format('woff2'), url(../fonts/IrSansMedium/IRANSansFaNum-Medium.woff) format('woff'), url(../fonts/IrSansMedium/IRANSansFaNum-Medium.ttf) format('truetype'), url(../fonts/IrSansMedium/IRANSansFaNum-Medium.svg#AIranianSans) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: IranSansLight;
+    src: url(../fonts/IRANSansFaNum-Light.eot);
+    src: url(../fonts/IRANSansFaNum-Light.eot?#iefix) format('embedded-opentype'), url(../fonts/IRANSansFaNum-Light.woff2) format('woff2'), url(../fonts/IRANSansFaNum-Light.woff) format('woff'), url(../fonts/IRANSansFaNum-Light.ttf) format('truetype'), url(../fonts/IRANSansFaNum-Light.svg#AIranianSans) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
+}
+.persian {
+    font-family: IranSansLight,IranSansLight, calibri, sans-serif !important;
+    font-weight: lighter;
+    font-size: medium
+}
+.rotic-submit{
+    background: #62C7D2 !important;
+    border-radius: 54px !important;
+    color:white !important;
+    border: 2px solid #62C7D2 !important;
+}
+.rotic-submit:focus{
+    text-decoration: none;
+    border: 2px solid #62C7D2 !important;
+}
+.rotic-submit:hover{
+    text-decoration: none;
+    color: #62C7D2 !important;
+    background: white !important;
+    transition: background .25s, color .25s, .25s ease-in-out;
+    -moz-transition: background .25s, color .25s, .25s ease-in-out;
+    -webkit-transition: background .25s, color .25s, .25s ease-in-out;
+}
+.rotic-submit{
+    transition: all 2s;
+    -moz-transition: all 2s;
+    -webkit-transition: all 2s;
+}
+.rotic-submit:active{
+    text-decoration: none;
+    border: 2px solid #62C7D2 !important;
+}
+.rotic-danger{
+    background: #FF0000 !important;
+    border-radius: 54px !important;
+    color:white !important;
+    border: 2px solid #FF0000 !important;
+}
+.rotic-danger:focus{
+    text-decoration: none;
+    border: 2px solid #FF0000 !important;
+}
+.rotic-danger:hover{
+    text-decoration: none;
+    color: #FF0000 !important;
+    background: white !important;
+    transition: background .25s, color .25s, .25s ease-in-out;
+    -moz-transition: background .25s, color .25s, .25s ease-in-out;
+    -webkit-transition: background .25s, color .25s, .25s ease-in-out;
+}
+.rotic-danger{
+    transition: all 2s;
+    -moz-transition: all 2s;
+    -webkit-transition: all 2s;
+}
+.rotic-danger:active{
+    text-decoration: none;
+    border: 2px solid #FF0000 !important;
+}
+.rotic-input{
+    height: 39px !important;
+    border: 2px solid #62C7D2 !important;
+    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.2)) !important;
+    border-radius: 29px !important;
+}
+.rotic-white{
+    background: #62C7D2 !important;
+    color:white !important;
+}
+.rotic-black{
+    background: #62C7D2 !important;
+    color:black !important;
+}
+.rotic-bordered-white{
+    border: 2px solid #62C7D2 !important;
+    color:white !important;
+}
+.rotic-bordered-black{
+    border: 2px solid #62C7D2 !important;
+    color:black !important;
+}
+.rotic-copy{
+    background: white !important;
+    border-radius: 29px !important;
+    color: #62C7D2 !important;
+    border: solid 0px black;
+    cursor: pointer;
+}
+.rotic-status{
+    font-size: 12px;
+    line-height: 144%;
+    /* or 17px */
+
+    display: flex;
+    align-items: center;
+    text-align: right;
+    text-transform: uppercase;
+}
+.rotic-shadow{
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25) !important;
+}
+.rotic-success-bordered{
+    background: #FFFFFF !important;
+    border: 2px solid #3D9851 !important;
+    color:  #3D9851 !important;
+    width: 121px;
+    height: 40px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25) !important;
+    border-radius: 33.5px !important;
+}
+.rotic-danger-bordered{
+    background: #FFFFFF !important;
+    border: 2px solid #FF0000 !important;
+    color:  #FF0000 !important;
+    width: 121px;
+    height: 40px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25) !important;
+    border-radius: 33.5px !important;
+}
+.rotic-warning-bordered{
+    background: #FFFFFF !important;
+    border: 2px solid #D29620 !important;
+    color:  #D29620 !important;
+    width: 121px;
+    height: 40px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25) !important;
+    border-radius: 33.5px !important;
+}
+.rotic-text{
+    color:  #D29620 !important;
+}
+.rotic-couple-button-icon{
+    position: absolute;
+    margin-right: 40px !important;
+    margin-top: -5px !important;
+}
+.rotic-couple-button-success-icon{
+    position: absolute;
+    margin-right: 50px !important;
+    margin-top: -5px !important;
+}
+.rotic-coin{
+    position: absolute;
+    margin-right: -29px !important;
+    margin-top: -5px !important;
+}
+.rotic-29{
+    border-radius: 29px !important;
+}
+.rotic-54{
+    border-radius: 54px !important;
+}
